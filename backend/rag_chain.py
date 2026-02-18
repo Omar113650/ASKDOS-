@@ -4,6 +4,9 @@ from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables.history import RunnableWithMessageHistory
 from langchain_community.chat_message_histories import ChatMessageHistory
 from langchain_groq import ChatGroq
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
 store = {}
 
@@ -13,11 +16,12 @@ def get_session_history(session_id: str):
     return store[session_id]
 
 def create_qa_chain(retriever):
-    # تعريف LLM
+
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
         temperature=0.2,
-        groq_api_key="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",
+         groq_api_key=os.environ.get("GROQ_API_KEY"),
+
     )
 
     prompt = ChatPromptTemplate.from_messages(
