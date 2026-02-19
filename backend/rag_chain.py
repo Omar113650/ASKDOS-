@@ -23,6 +23,7 @@ def create_qa_chain(retriever):
          groq_api_key=os.environ.get("GROQ_API_KEY"),
 
     )
+    
 
     prompt = ChatPromptTemplate.from_messages(
         [

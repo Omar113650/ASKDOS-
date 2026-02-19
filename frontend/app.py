@@ -9,6 +9,7 @@ def upload_file(file):
         response = requests.post(f"{BACKEND_URL}/upload", files=files)
     return response.json()["message"]
 
+
 def chat_fn(message, history):
     response = requests.post(f"{BACKEND_URL}/rag/invoke", json={"input": {"question": message}})
     return response.json()["output"]
@@ -32,6 +33,13 @@ with gr.Blocks() as demo:
         title="Contract Chat",
         description="Type your question below:",
     )
+
+    
+
+def evaluate_geval():
+    response = requests.get(f"{BACKEND_URL}/evaluate-geval")
+    return response.json()
+
 
 
 demo.launch(css="""

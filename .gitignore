@@ -4,7 +4,7 @@ data
 .env
 
 
-
+env
 venv/
 .venv/
 venv
@@ -13,3 +13,16 @@ chroma_db/
 __pycache__/
 *.pyc
 env/
+
+
+
+
+
+
+
+
+.env
+*.env
+chroma_db/
+data/
+__pycache__/
