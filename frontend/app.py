@@ -3,6 +3,7 @@ import requests
 
 BACKEND_URL = "http://localhost:8000"
 
+
 def upload_file(file):
     with open(file.name, "rb") as f:
         files = {"file": (file.name, f.read(), "application/octet-stream")}
@@ -39,6 +40,8 @@ with gr.Blocks() as demo:
 def evaluate_geval():
     response = requests.get(f"{BACKEND_URL}/evaluate-geval")
     return response.json()
+
+
 
 
 

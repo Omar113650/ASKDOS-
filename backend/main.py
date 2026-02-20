@@ -53,14 +53,14 @@ rag_runnable = RunnableLambda(invoke_chain)
 
 add_routes(app, rag_runnable, path="/rag")
 
+
 @app.get("/evaluate-geval")
 async def run_geval():
     if qa_chain is None:
         return {"error": "Upload document first."}
     if retriever is None:
         return {"error": "Please upload a document first."}
-    results = evaluate_with_geval(qa_chain, retriever)
-
+    results = evaluate_with_geval(qa_chain, retriever)  
     return results
 
 

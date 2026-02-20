@@ -75,16 +75,3 @@ def create_qa_chain(retriever):
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
